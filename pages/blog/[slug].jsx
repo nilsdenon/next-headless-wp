@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import Head from 'next/head'
+import PageLayout from '../../layout/PageLayout'
 import Link from 'next/link'
 
 // data
@@ -25,33 +25,26 @@ export default function Post({ postData }) {
   }
 
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>{postData.title}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main>
-        {router.isFallback ? (
-          <h2>...loading</h2>
-        ) : (
-          <article className={blogStyles.article}>
-            <div className={blogStyles.postmeta}>
-              <h1 className={styles.title}>{postData.title}</h1>
-              <p>{formatDate(postData.date)}</p>
-            </div>
-            <div
-              className="post-content content"
-              dangerouslySetInnerHTML={{ __html: postData.content }}
-            />
-          </article>
-        )}
-        <p>
-          <Link href="/blog">
-            <a>back to articles</a>
-          </Link>
-        </p>
-      </main>
-    </div>
+    <PageLayout title={postData.title}>
+      {router.isFallback ? (
+        <h2>...loading</h2>
+      ) : (
+        <article className={blogStyles.article}>
+          <div className={blogStyles.postmeta}>
+            <p>{formatDate(postData.date)}</p>
+          </div>
+          <div
+            className="post-content content"
+            dangerouslySetInnerHTML={{ __html: postData.content }}
+          />
+        </article>
+      )}
+      <p>
+        <Link href="/blog">
+          <a>back to articles</a>
+        </Link>
+      </p>
+    </PageLayout>
   )
 }
 

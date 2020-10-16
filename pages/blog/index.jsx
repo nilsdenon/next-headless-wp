@@ -3,14 +3,11 @@ import PageLayout from '../../layout/PageLayout'
 // data
 import { getAllPosts } from '../../lib/api'
 
-// styles
-import blogStyles from '../../styles/Blog.module.css'
-
 export const Blog = ({ allPosts: { edges } }) => (
   <PageLayout>
     {edges.map(({ node }) => (
-      <div className={blogStyles.listitem} key={node.id}>
-        <div className={blogStyles.listitem__thumbnail}>
+      <div key={node.id}>
+        <div>
           <figure>
             <img
               src={node.extraPostInfo.thumbImage.mediaItemUrl}
@@ -18,7 +15,7 @@ export const Blog = ({ allPosts: { edges } }) => (
             />
           </figure>
         </div>
-        <div className={blogStyles.listitem__content}>
+        <div>
           <h2>{node.title}</h2>
           <p>{node.extraPostInfo.authorExcerpt}</p>
           <Link href={`/blog/${node.slug}`}>

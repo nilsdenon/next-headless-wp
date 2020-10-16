@@ -1,20 +1,45 @@
 import Head from 'next/head'
 import Header from '../components/Header'
-import styles from '../styles/Home.module.css'
+import styled from 'styled-components'
 
-const PageLayout = ({ children, pageTitle }) => {
+const Container = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+const Main = styled.main`
+  flex: 1;
+`
+
+const Footer = styled.footer`
+  height: 100px;
+`
+
+const PageLayout = ({ children, title }) => {
   return (
-    <div className={styles.container}>
+    <Container>
       <Head>
-        <title>{pageTitle} page</title>
+        <title>{title} page</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main className={styles.main}>
-        <h1 className={styles.title}>{pageTitle}</h1>
+      <Main>
+        <h1>{title}</h1>
         {children}
-      </main>
-    </div>
+      </Main>
+      <Footer>
+        <a
+          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          @damienpierre
+        </a>
+      </Footer>
+    </Container>
   )
 }
 

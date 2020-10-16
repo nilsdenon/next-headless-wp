@@ -9,9 +9,11 @@
   },
   "dependencies": {
     "next": "9.5.5",
+    "next-google-fonts": "^1.2.1",
     "react": "16.14.0",
     "react-dom": "16.14.0",
-    "styled-components": "^5.2.0"
+    "styled-components": "^5.2.0",
+    "styled-reset": "^4.2.3"
   },
   "prettier": {
     "tabWidth": 2,
