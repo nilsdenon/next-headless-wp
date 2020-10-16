@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
+import PageLayout from '../layout/PageLayout'
 
 // data
 import { getPrimaryMenu } from '../lib/api'
@@ -9,7 +10,7 @@ export default function Home({ menuData: { edges } }) {
   const primaryMenu = edges[0].node.menuItems.edges
 
   return (
-    <div className={styles.container}>
+    <PageLayout>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -43,7 +44,7 @@ export default function Home({ menuData: { edges } }) {
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
-    </div>
+    </PageLayout>
   )
 }
 

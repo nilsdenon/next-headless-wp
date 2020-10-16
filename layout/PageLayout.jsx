@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Header from '../components/Header'
 import styles from '../styles/Home.module.css'
 
 const PageLayout = ({ children, pageTitle }) => {
@@ -8,7 +9,7 @@ const PageLayout = ({ children, pageTitle }) => {
         <title>{pageTitle} page</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header></header>
+      <Header />
       <main className={styles.main}>
         <h1 className={styles.title}>{pageTitle}</h1>
         {children}

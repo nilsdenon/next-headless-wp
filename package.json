@@ -1,5 +1,5 @@
 {
-  "name": "headless-wp-demo",
+  "name": "next-headless-wp",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,8 @@
   "dependencies": {
     "next": "9.5.5",
     "react": "16.14.0",
-    "react-dom": "16.14.0"
+    "react-dom": "16.14.0",
+    "styled-components": "^5.2.0"
   },
   "prettier": {
     "tabWidth": 2,
@@ -18,5 +19,21 @@
     "singleQuote": true,
     "semi": false,
     "trailingComma": "es5"
+  },
+  "babel": {
+    "presets": [
+      "next/babel"
+    ],
+    "plugins": [
+      [
+        "styled-components",
+        {
+          "ssr": true
+        }
+      ]
+    ]
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.11.1"
   }
 }
