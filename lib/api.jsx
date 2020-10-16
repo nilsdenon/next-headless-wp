@@ -85,6 +85,18 @@ export async function getMenuWithSlug() {
   return data?.menus
 }
 
+export async function getSiteMetaData() {
+  const data = await fetchAPI(
+    `{
+      allSettings {
+        generalSettingsTitle
+      }
+    }
+  `
+  )
+  return data?.allSettings
+}
+
 export async function getPrimaryMenu() {
   const data = await fetchAPI(`
      {

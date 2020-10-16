@@ -5,10 +5,6 @@ import Link from 'next/link'
 // data
 import { getAllPostsWithSlug, getPost } from '../../lib/api'
 
-// styles
-import styles from '../../styles/Home.module.css'
-import blogStyles from '../../styles/Blog.module.css'
-
 export default function Post({ postData }) {
   const router = useRouter()
 
@@ -29,14 +25,11 @@ export default function Post({ postData }) {
       {router.isFallback ? (
         <h2>...loading</h2>
       ) : (
-        <article className={blogStyles.article}>
-          <div className={blogStyles.postmeta}>
+        <article>
+          <div>
             <p>{formatDate(postData.date)}</p>
           </div>
-          <div
-            className="post-content content"
-            dangerouslySetInnerHTML={{ __html: postData.content }}
-          />
+          <div dangerouslySetInnerHTML={{ __html: postData.content }} />
         </article>
       )}
       <p>

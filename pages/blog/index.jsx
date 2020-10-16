@@ -1,10 +1,10 @@
 import Link from 'next/link'
-import PageLayout from '../../layout/PageLayout'
+import Layout from '../../components/Layout'
 // data
 import { getAllPosts } from '../../lib/api'
 
-export const Blog = ({ allPosts: { edges } }) => (
-  <PageLayout>
+const Blog = ({ allPosts: { edges } }) => (
+  <Layout title="Blog Page">
     {edges.map(({ node }) => (
       <div key={node.id}>
         <div>
@@ -24,7 +24,7 @@ export const Blog = ({ allPosts: { edges } }) => (
         </div>
       </div>
     ))}
-  </PageLayout>
+  </Layout>
 )
 
 export async function getStaticProps() {

@@ -1,10 +1,12 @@
-import '../styles/globals.css'
 import { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset'
 import { colors, transitions } from '../theme/default'
 
 const GlobalStyles = createGlobalStyle`
   ${reset}
+  * {
+    box-sizing: border-box;
+  }
   html {
      /* Adjust font size */
      font-size: 100%;
@@ -24,7 +26,11 @@ const GlobalStyles = createGlobalStyle`
       'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
   }
-  
+  #__next {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
   h1 {
     font-weight: 800;
   }
